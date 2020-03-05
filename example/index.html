@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.2.1/pixi.min.js"
+    integrity="sha256-LzClwveZCCIyst3+wITowZNFFwZnm5NZKeNUkSmuAEI=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <script src="../lib/hitarea-shapes.min.js"></script>
+  <script>
+
+    // Data Exporter From Physicseditor With phaser P2
+    fetch('./flowerTop.json')
+      .then(data => data.json())
+      .then(data => create(data));
+
+    function create(data) {
+      const app = new PIXI.Application({
+        width: 200,
+        height: 200,
+      });
+
+      document.body.appendChild(app.view);
+
+      const sprite = PIXI.Sprite.from('https://pixijs.io/examples/examples/assets/flowerTop.png');
+      sprite.buttonMode = true;
+      sprite.interactive = true;
+
+      const hitAreaShapes = new HitAreaShapes(data)
+
+      const graphic = hitAreaShapes.shapes.reduce((graphic, shape, index, array) => {
+
+        if (index === 0) graphic.beginFill(0x00ffcc);
+
+        graphic.drawPolygon(shape)
+
+        if (index === array.length - 1) {
+          graphic.endFill();
+          graphic.visible = false;
+        };
+
+        return graphic;
+      }, new PIXI.Graphics());
+
+      sprite.hitArea = hitAreaShapes;
+      sprite.addListener('pointerover', () => graphic.visible = true);
+      sprite.addListener('pointerout', () => graphic.visible = false);
+
+      app.stage.addChild(sprite);
+      app.stage.addChild(graphic);
+    }
+  </script>
+
+</body>
+
+</html>
