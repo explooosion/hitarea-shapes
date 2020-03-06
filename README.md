@@ -4,7 +4,9 @@
 
 # HitAreaShapes
 
-Use [PixiJS](https://www.pixijs.com/) to set transparent shape's [hitArea](https://pixijs.download/dev/docs/PIXI.Sprite.html#hitArea) with multiple polygons. Please install [PhysicsEditor](https://www.codeandweb.com/physicseditor) before starting.
+Use [PixiJS](https://www.pixijs.com/) to set shape's [hitArea](https://pixijs.download/dev/docs/PIXI.Sprite.html#hitArea) with multiple polygons. 
+
+Please install [PhysicsEditor](https://www.codeandweb.com/physicseditor) before starting.
 
 ## Prepare
 
@@ -22,12 +24,12 @@ Installation is done using the
 [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
 
 - Use npm
-  ```bash
+  ```sh
   npm install --save pixi.js hitarea-shapes
   ```
 
 - Use yarn
-  ```bash
+  ```sh
   yarn add pixi.js hitarea-shapes
   ```
 
@@ -39,7 +41,8 @@ Import module and your polygons json file.
 import HitAreaShapes from 'hitarea-shapes';
 import polygons from './my-polygons.json';
 
-const hitAreaShapes = new HitAreaShapes(data)
+const hitAreaShapes = new HitAreaShapes(polygons);
+
 const sprite = PIXI.Sprite.from('https://pixijs.io/examples/examples/assets/flowerTop.png');
 
 sprite.buttonMode = true;
