@@ -52,7 +52,7 @@ const config = {
     extensions: ['.json', '.js']
   },
   externals: {
-    'PIXI': 'pixi.js',
+    'pixi.js': 'PIXI',
   }
 };
 
