@@ -45,14 +45,16 @@ const config = {
     ]
   },
   resolve: {
-    alias: {
-      'PIXI': path.resolve(__dirname, './node_modules/pixi.js'),
-    },
     modules: [path.resolve('./node_modules'), path.resolve('./src')],
     extensions: ['.json', '.js']
   },
   externals: {
-    'pixi.js': 'PIXI',
+    'pixi.js': {
+      commonjs: 'pixi.js',
+      commonjs2: 'pixi.js',
+      amd: 'pixi.js',
+      root: 'PIXI' // indicates global variable
+    },
   }
 };
 

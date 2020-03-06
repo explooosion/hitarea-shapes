@@ -1,12 +1,11 @@
 {
   "name": "hitarea-shapes",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "PixiJS hitArea with multiple polygons.",
   "main": "lib/hitarea-shapes.min.js",
   "scripts": {
     "build": "webpack --env dev && webpack --env build",
-    "dev": "webpack --progress --colors --watch --env dev",
-    "repl": "node -i -e \"$(< ./lib/hitarea-shapes.js)\""
+    "dev": "webpack --progress --colors --watch --env dev"
   },
   "repository": {
     "type": "git",
@@ -49,6 +48,7 @@
     "jsdom": "16.2.0",
     "jsdom-global": "3.0.2",
     "nyc": "^15.0.0",
+    "pixi.js": "^5.2.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
