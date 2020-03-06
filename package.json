@@ -1,6 +1,6 @@
 {
   "name": "hitarea-shapes",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "PixiJS hitArea with multiple polygons.",
   "main": "lib/hitarea-shapes.min.js",
   "scripts": {
