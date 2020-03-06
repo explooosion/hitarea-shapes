@@ -5,18 +5,11 @@ const path = require('path');
 const env = require('yargs').argv.env; // use --env with webpack 2
 const pkg = require('./package.json');
 
-let cdnName = pkg.name;
-let libraryName = 'HitAreaShapes';
+const cdnName = pkg.name;
+const libraryName = 'HitAreaShapes';
 
-let outputFile, mode;
-
-if (env === 'build') {
-  mode = 'production';
-  outputFile = cdnName + '.min.js';
-} else {
-  mode = 'development';
-  outputFile = cdnName + '.js';
-}
+const mode = (env === 'build') ? 'production' : 'development';
+const outputFile = (env === 'build') ? cdnName + '.min.js' : cdnName + '.js';
 
 const config = {
   mode: mode,
@@ -53,7 +46,7 @@ const config = {
       commonjs: 'pixi.js',
       commonjs2: 'pixi.js',
       amd: 'pixi.js',
-      root: 'PIXI' // indicates global variable
+      root: 'PIXI', // import from cdn
     },
   }
 };
