@@ -16,17 +16,17 @@
     let app, sprite, graphic, hitAreaShapes;
     let jsonData;
 
-    // Data Exporter From Physicseditor With phaser P2
+    // Physicseditor Exporter with phaser(P2)
     fetch('./flowerTop.json')
       .then(data => data.json())
       .then(data => {
         jsonData = data;
-        create();
+        createApp();
         createSprite();
         createSprieShape();
       });
 
-    function create() {
+    function createApp() {
       app = new PIXI.Application({
         width: 200,
         height: 200,
